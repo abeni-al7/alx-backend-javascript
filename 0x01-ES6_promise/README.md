@@ -1,0 +1,1 @@
+A practice directory for ES6 Promises
