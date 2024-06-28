@@ -6,8 +6,12 @@ export default class Car {
     this._color = color;
   }
 
+  [cloneSymbol]() {
+    return new this.constructor();
+  }
+
   cloneCar() {
-    return new this[cloneSymbol]();
+    return this[cloneSymbol]();
   }
 
   static [cloneSymbol]() {
