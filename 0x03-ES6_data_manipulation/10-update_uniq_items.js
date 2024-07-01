@@ -1,11 +1,11 @@
-/* eslint-disable no-param-reassign */
 export default function updateUniqueItems(map) {
   if (!(map instanceof Map)) {
     throw new Error('Cannot process');
   }
-  map.forEach((value, key) => {
+
+  for (const [key, value] of map.entries()) {
     if (value === 1) {
       map.set(key, 100);
     }
-  });
+  }
 }
