@@ -52,7 +52,7 @@ app.get('/students', (req, res) => {
   res.write('This is the list of our students\n');
   countStudents(process.argv[2].toString())
     .then((data) => {
-      res.write(data.slice(0, -1));
+      res.write(data);
     })
     .catch((err) => {
       res.write(err.message);
