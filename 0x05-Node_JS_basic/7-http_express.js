@@ -49,16 +49,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  res.write('This is the list of our students\n');
   countStudents(process.argv[2].toString())
     .then((data) => {
-      res.write(data.slice(0, -1));
+      res.send(['This is the list of our students', data].join('\n'));
     })
-    .catch((err) => {
-      res.write(err.message);
+    .catch(() => {
+      res.send('This is the list of our students\nCannot load the database');
     });
 });
 
-app.listen(1245);
+app.listen(1245, () => {
+});
 
 module.exports = app;
