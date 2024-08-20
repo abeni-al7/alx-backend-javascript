@@ -1,15 +1,15 @@
 const http = require('http');
-const { readFile } = require('fs');
+const fs = require('fs');
 
 const hostname = '127.0.0.1';
 const port = 1245;
 
-function countStudents(fileName) {
+function countStudents(path) {
   const students = {};
   const fields = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    readFile(fileName, (err, data) => {
+    fs.readFile(path, (err, data) => {
       if (err) {
         reject(err);
       } else {
